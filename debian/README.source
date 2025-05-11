@@ -1,10 +1,8 @@
 aws-gate for Debian
 ------------------
 
-<This file describes information about the source package, see Debian policy
-manual section 4.14. You WILL either need to modify or delete this file.>
+aws-gate is a AWS SSM Session Manager CLI client. It aims to provide richer user experience than official tooling.
 
+Read the main documentation for more info:
 
-
- -- Iain Elder <isme@isme.es>  Sun, 11 May 2025 22:16:40 +0200
-
+https://aws-gate.readthedocs.io/en/latest/
