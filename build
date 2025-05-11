@@ -2,15 +2,11 @@
 
 set -euxo pipefail
 
-sudo apt install devscripts equivs
+sudo apt -y install devscripts equivs
 
 package="aws-gate"
 version="0.11.3"
 src_dir="${package}-${version}"
-
-export DEBEMAIL="iain@isme.es"
-export DEBFULLNAME="Iain Elder"
-dh_make -Ci -y -cbsd
 
 # GitHub's export name just happens to match dh_make's expected directory name.
 curl -L "https://github.com/xen0l/${package}/archive/refs/tags/${version}.tar.gz" |
@@ -28,6 +24,4 @@ sudo mk-build-deps \
     --remove \
     --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes'
 
-export DEBEMAIL="iain@isme.es"
-export DEBFULLNAME="Iain Elder"
-dh_make -Ci -y -cbsd
+debuild -S -sa
