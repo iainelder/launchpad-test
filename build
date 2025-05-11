@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+sudo apt install devscripts equivs
+
+package="aws-gate"
+version="0.11.3"
+src_dir="${package}-${version}"
+
+export DEBEMAIL="iain@isme.es"
+export DEBFULLNAME="Iain Elder"
+dh_make -Ci -y -cbsd
+
+# GitHub's export name just happens to match dh_make's expected directory name.
+curl -L "https://github.com/xen0l/${package}/archive/refs/tags/${version}.tar.gz" |
+tar -xz
+
+# Make the orig archive.
+tar -cJ -f "${package}_${version}.orig.tar.xz" -C "${src_dir}" '.'
+
+cd "$src_dir"
+
+# Might need to do the commented command in a non-interactive environment.
+# mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' debian/control
+sudo mk-build-deps --install
+
+
+export DEBEMAIL="iain@isme.es"
+export DEBFULLNAME="Iain Elder"
+dh_make -Ci -y -cbsd

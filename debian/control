@@ -1,0 +1,18 @@
+Source: aws-gate
+Section: unknown
+Priority: optional
+Maintainer: Iain Elder <isme@isme.es>
+Rules-Requires-Root: no
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all
+Standards-Version: 4.6.2
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/aws-gate
+#Vcs-Git: https://salsa.debian.org/debian/aws-gate.git
+
+Package: aws-gate
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+Description: <insert up to 60 chars description>
+ <Insert long description, indented with spaces.>
