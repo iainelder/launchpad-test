@@ -25,3 +25,5 @@ sudo mk-build-deps \
     --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes'
 
 debuild -S -sa
+
+dput --debug ppa:isme-es/test-ppa ../aws-gate_0.11.3-1_source.changes
