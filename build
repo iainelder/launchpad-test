@@ -20,6 +20,7 @@ tar -xz
 tar -cJ -f "${package}_${version}.orig.tar.xz" -C "${src_dir}" '.'
 
 cd "$src_dir"
+cp -r ../debian .
 
 # Might need to do the commented command in a non-interactive environment.
 # mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' debian/control
