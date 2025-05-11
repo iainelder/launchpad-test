@@ -1,5 +1,5 @@
 Source: aws-gate
-Section: unknown
+Section: admin
 Priority: optional
 Maintainer: Iain Elder <isme@isme.es>
 Rules-Requires-Root: no
