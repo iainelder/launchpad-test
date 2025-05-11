@@ -22,10 +22,11 @@ tar -cJ -f "${package}_${version}.orig.tar.xz" -C "${src_dir}" '.'
 cd "$src_dir"
 cp -r ../debian .
 
-# Might need to do the commented command in a non-interactive environment.
-# mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' debian/control
-sudo mk-build-deps --install
-
+# Install build dependencies.
+sudo mk-build-deps \
+    --install \
+    --remove \
+    --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes'
 
 export DEBEMAIL="iain@isme.es"
 export DEBFULLNAME="Iain Elder"
