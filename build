@@ -24,6 +24,7 @@ sudo mk-build-deps \
     --remove \
     --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes'
 
-debuild -S -sa
+# Build and sign with my key in Launchpad.
+debuild -S -sa -k0x0194E029AD29E57764379B921A60B9A721EB268B
 
 dput --debug ppa:isme-es/test-ppa ../aws-gate_0.11.3-1_source.changes
